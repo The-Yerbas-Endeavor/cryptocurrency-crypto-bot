@@ -1,20 +1,37 @@
 {
-  "name": "cryptocurrency-crypto-bot",
-  "version": "1.3.2",
-  "description": "Cryptocurrency-crypto-bot is an open-source Node.js wallet bot for Discord.",
+  "name": "yerbas-tip-bot",
+  "version": "2.0.0-alpha.0",
+  "description": "Official Discord wallet and community tipping bot for the Yerbas (YERB) network.",
   "main": "./index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:legacy": "node index.js",
+    "test": "echo \"Modernization tests have not been implemented yet\" && exit 1"
   },
   "bin": {
-    "cryptobot": "./index.js"
+    "yerbas-tip-bot": "./index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/The-Yerbas-Endeavor/cryptocurrency-crypto-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/The-Yerbas-Endeavor/cryptocurrency-crypto-bot/issues"
+  },
+  "homepage": "https://github.com/The-Yerbas-Endeavor/cryptocurrency-crypto-bot#readme",
+  "keywords": [
+    "yerbas",
+    "yerb",
+    "discord",
+    "tip-bot",
+    "cryptocurrency"
+  ],
+  "author": "Christian Grieger and The Yerbas Endeavor contributors",
+  "license": "MIT",
   "pkg": {
     "scripts": "./functions/**/*.js",
     "assets": "./storage/**/*"
   },
-  "author": "Christian Grieger",
-  "license": "MIT",
   "dependencies": {
     "altcoin-rpc": "^1.0.2",
     "array-unique": "^0.3.2",
