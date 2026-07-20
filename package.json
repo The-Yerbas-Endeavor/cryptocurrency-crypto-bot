@@ -1,15 +1,19 @@
 {
   "name": "yerbas-tip-bot",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "description": "Official Discord wallet and community tipping bot for the Yerbas (YERB) network.",
-  "main": "./index.js",
+  "main": "./src/index.js",
   "private": true,
-  "scripts": {
-    "start:legacy": "node index.js",
-    "test": "echo \"Modernization tests have not been implemented yet\" && exit 1"
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
   },
-  "bin": {
-    "yerbas-tip-bot": "./index.js"
+  "scripts": {
+    "start": "node src/index.js",
+    "start:legacy": "node index.js",
+    "check": "node --check src/index.js && node --check src/config.js",
+    "test": "node --test"
   },
   "repository": {
     "type": "git",
@@ -28,29 +32,10 @@
   ],
   "author": "Christian Grieger and The Yerbas Endeavor contributors",
   "license": "MIT",
-  "pkg": {
-    "scripts": "./functions/**/*.js",
-    "assets": "./storage/**/*"
-  },
   "dependencies": {
-    "altcoin-rpc": "^1.0.2",
-    "array-unique": "^0.3.2",
-    "big.js": "^5.2.2",
-    "bufferutil": "^4.0.0",
-    "discord.js": "^11.4.2",
-    "erlpack": "^0.1.2",
-    "fs": "0.0.1-security",
-    "jsonfile": "^5.0.0",
-    "libsodium-wrappers": "^0.7.3",
-    "log4js": "^3.0.6",
-    "lowdb": "^1.0.0",
-    "moment": "^2.22.2",
-    "moment-timezone": "^0.5.23",
-    "mysql2": "^1.6.4",
-    "node-opus": "^0.3.1",
-    "opusscript": "0.0.6",
-    "request-promise": "^4.2.4",
-    "sodium": "^3.0.2",
-    "uws": "^99.0.0"
+    "big.js": "^7.0.0",
+    "discord.js": "^14.0.0",
+    "dotenv": "^16.0.0",
+    "mysql2": "^3.0.0"
   }
 }
