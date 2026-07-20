@@ -1,78 +1,76 @@
-# Cryptocurrency-crypto-bot is an open-source Node.js wallet bot for Discord.
+# Yerbas Tip Bot v2
 
-### Preview pictures
-<img src="https://user-images.githubusercontent.com/8712219/69255023-68990180-0bb7-11ea-8e15-755491968a5e.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255024-68990180-0bb7-11ea-9ce4-f962a17f6a0a.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255026-69319800-0bb7-11ea-9f9e-acd0883a0d1d.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255027-69319800-0bb7-11ea-85ad-f93b84c9c475.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255028-69ca2e80-0bb7-11ea-81e6-ae11149e539a.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255030-69ca2e80-0bb7-11ea-86b4-4965995a4438.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255034-6a62c500-0bb7-11ea-8c0e-a9117234cda6.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255037-6afb5b80-0bb7-11ea-88b2-3806c594639e.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255039-6b93f200-0bb7-11ea-82f7-1dd738795eb1.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255040-6c2c8880-0bb7-11ea-95a9-9d4d44401de5.jpg" width="45%"></img> <img src="https://user-images.githubusercontent.com/8712219/69255043-6cc51f00-0bb7-11ea-8818-f2bc151f1fbd.jpg" width="45%"></img> 
+The official Discord wallet and community tipping bot for the **Yerbas (YERB)** network.
 
-### BOT COMMANDS
-> ```+register | +r```  
-Register an account with the bot.  
-```+profile | +p```  
-Display account information.  
-```+balance | +b```  
-Display your current balance.  
-```+deposit | +d```  
-Get your deposit address.  
-```+withdraw <address> <amount> | +w <address> <amount>```  
-Withdraw balance to an address (0.01 VIP transaction fee will be added on top of the amount).  
-```+stake <amount>```  
-Convert balance to stake balance for receiving stake pool payouts. (Its always possible to add balance but it will reset the unstake timer)  
-```+unstake <amount>```  
-Convert balance to normal balance (Only once within 24 hours if no stake/unstake has been done).__
-```+tip <@username> <amount>```  
-Tip a user from Discord.  
-```+rain <all/online/random> <amount> <userCount>```  
-(all) Tip amount divided by total user count. / (online) Tip amount divided by active users. / (random) Tip amount divided by random user count.
-```+drop <phrase/react> <amount> <timeInSeconds> <30 letter phrase>```  
-(phrase) Send coins to all users that reply with the asked phrase. / (react) Send coins to all users that react with the asked icon.  
-```+history <deposits/withdrawals/payments> | +history <d/w/p>```  
-(deposits) Show your latest deposits. / (withdrawals) Show your latest withdrawals. / (payments) Show your latest payments. 
-```+update | +u```  
-Update your username.  
-```+donate```  
-Show the bot creators tip address.  
-```+notify <on/off>```  
-Enable or disable to get mentioned by the bot.  
-```+version | +v```  
-Get current bot and wallet information.  
+> [!IMPORTANT]
+> The `modernize-v2` branch is an active pre-release modernization branch. It is not yet recommended for production custody of funds. The legacy implementation is being upgraded in controlled stages so existing balances, deposits, withdrawals, tips, rain, drops, and staking records remain safe.
 
-### ADMIN COMMANDS
-> ```+start / +stop```  
-Enable/Disable all bot commands while the bot is running.  
-```+getdeposits | +gd```   
-Manually get latest transactions from wallet and update confirmations.  
-```+creditdeposits | +cd```  
-Manually check confiramtions on database and credit deposits if they have min confirmations.  
-```+getstakes || +gs```   
-Manually check transactions on database if they are stakes.  
-```+creditstakes || +cs```  
-Manually credit stakes to users.
-```+clear || +c```  
-Delete all visible messages from chat.
+## Project status
 
-### Additional information
+- **Product name:** Yerbas Tip Bot
+- **Development version:** 2.0.0-alpha
+- **Network:** Yerbas mainnet
+- **Ticker:** YERB
+- **Explorer:** https://explorer.yerbas.org
+- **Runtime target:** Node.js 22 LTS
+- **Discord target:** Discord.js v14
+- **Database:** MySQL/MariaDB
+- **Wallet interface:** Yerbas Core JSON-RPC
 
-- It supports all coins using the standard Bitcoin rpc commands  
-- It's possible to configure a staking pool for POS coins  
-- Written for Node.js  
-- The bot offers the option to enable or disable all commands seperated, so its not needed to use them all  
-- The backend is a mysql database  
-- A massive configuration file to manage all content from one file  
-- You can define administrators, moderators and a vip group  
-... and many many many more options, please check the config file  
+The original v1 code remains available for reference. Modernization work takes place on `modernize-v2` and will be merged only after wallet accounting and migration tests pass.
 
-## Installation
-1. Create a MySQL Database and import the cryptocurrency-crypto-bot.sql  
-2. Edit the config file carefully without missing any needed value!
-3. Start your bot and enjoy! -> node index.js
+## Planned v2 commands
 
-## Staking
-1. The database connection needs to work  
-2. Enable staking on your wallet and add walletnotify option to your coin config (change the path to the bots transactions.sh script)  
-staking=1  
-walletnotify=/path/to/your/bot/folder/transaction.sh %s  
-3. Enalbe staking options on the config file  
-4. Check if transactionns are coming in to database
+Yerbas Tip Bot v2 will support modern Discord slash commands while retaining selected prefix commands during migration.
 
-## Projects using the bot - Feel free to contact me to get added
-- Limitless (VIP) - Discord: https://discord.gg/wtz6QYX - Website: http://vip.limitlessvip.co.za/
-- BARE Coin (BARE) - Discord: https://discord.gg/xmQbzNH - Website: https://bare.network/
+| Slash command | Legacy alias | Purpose |
+|---|---|---|
+| `/balance` | `+balance` | Display available YERB balance |
+| `/deposit` | `+deposit` | Get a Yerbas deposit address |
+| `/withdraw` | `+withdraw` | Withdraw YERB to an external address |
+| `/tip` | `+tip` | Tip another Discord member |
+| `/rain` | `+rain` | Distribute YERB among eligible members |
+| `/drop` | `+drop` | Create a phrase or reaction giveaway |
+| `/history` | `+history` | Review deposits, withdrawals, and payments |
+| `/profile` | `+profile` | Display account information |
+
+Administrative deposit-crediting and maintenance commands will be restricted by Discord permissions and recorded in an audit log.
+
+## Modernization priorities
+
+1. Upgrade the Discord integration to Discord.js v14.
+2. Move credentials and secrets out of `config.js`.
+3. replace callback-heavy code with structured async services.
+4. Store YERB amounts as integer atomic units for exact accounting.
+5. Add SQL transactions, row locking, idempotency, and audit records.
+6. Validate all addresses and withdrawals through Yerbas Core RPC.
+7. Add automated tests, GitHub Actions, Docker support, and migration tooling.
+
+See [`docs/MODERNIZATION.md`](docs/MODERNIZATION.md) for the staged implementation plan.
+
+## Yerbas Core RPC
+
+The v2 wallet adapter will be tested against the RPC methods used by current Yerbas Core releases, including:
+
+```text
+getnewaddress
+validateaddress
+gettransaction
+listtransactions
+sendtoaddress
+getwalletinfo
+getblockchaininfo
+getnetworkinfo
+```
+
+RPC credentials must never be committed to the repository. The production wallet should use a dedicated RPC account, local firewall restrictions, wallet encryption, backups, withdrawal limits, and a minimal hot-wallet balance.
+
+## Security warning
+
+This software manages cryptocurrency balances. Do not deploy the modernization branch with real funds until the applicable release is marked production-ready and the database migration, deposit-crediting, withdrawal, restart-recovery, and duplicate-processing tests have passed.
+
+Report security issues privately to The Yerbas Endeavor rather than opening a public issue containing credentials or exploitable details.
+
+## License and attribution
+
+Yerbas Tip Bot v2 continues under the MIT License. It is based on the original open-source Cryptocurrency Crypto Bot by Christian Grieger and preserves attribution to the original author and contributors.
